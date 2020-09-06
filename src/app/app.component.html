@@ -1,4 +1,68 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+
+<div class="container">
+  <h1>{{title}}</h1>
+
+<h2>Create data:</h2>
+
+<form class="form-horizontal" action="/action_page.php">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="name">Insert new item:</label>
+    <div class="col-sm-10">
+    <input type="text" class="form-control" id="name" name="name" 
+    [(ngModel)]="model.name" placeholder="Enter a new product">
+    </div>
+
+    <div class="form-group">
+    <label class="control-label col-sm-2" for="position">Insert Quantity:</label>
+    <div class="col-sm-10">
+    <input type="text" class="form-control" id="position" name="position" 
+    [(ngModel)]="model.position" placeholder="Enter quantity number">
+    </div>
+
+  </div>
+
+  <br/>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    <button type="submit" class="btn btn-default" (click)="addEmployee()">Add</button>
+    </div>
+  </div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<h2>Read data & (delete data):</h2>
+
+<body>
+<div class="container">           
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th width=400>Product name</th>
+        <th width=200>Quantity</th>
+        <th width=400>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees; let i=index">
+        <td>{{employee.name}}</td>
+        <td>{{employee.position}}</td>
+        <td>
+          <a class="btn btn-success">Edit</a>
+          <a class="btn btn-danger" (click)="deleteEmployee(i)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Update data:</h2>
+
