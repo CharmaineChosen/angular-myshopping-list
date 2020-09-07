@@ -15,12 +15,12 @@ export class AppComponent  {
   model:any={};
   model2:any={};
   addEmployee(){
-    this.employees.push(this.model)
+    this.employees.push(this.model);
     this.model = {};
   }
   deleteEmployee(i){
     this.employees.splice(i, 1)
-    console.log(i);
+  
   }
   myValue;
   editEmployee(k){
