@@ -7,32 +7,32 @@ import { Component } from '@angular/core';
 })
 export class AppComponent  {
   title = 'Shopping List';
-  employees = [
-    {name: "Cheese", position:"four"},
-    {name: "Juice", position:"two"},
-    {name: "Apples", position:"thirty"},
+  products = [
+    {name: "Cheese", quantity:"four"},
+    {name: "Juice", quantity:"two"},
+    {name: "Apples", quantity:"thirty"},
   ];
   model:any={};
   model2:any={};
-  addEmployee(){
-    this.employees.push(this.model);
+  addProduct(){
+    this.products.push(this.model);
     this.model = {};
   }
-  deleteEmployee(i){
-    this.employees.splice(i, 1)
+  deleteProduct(i){
+    this.products.splice(i, 1)
   
   }
   myValue;
-  editEmployee(k){
-    this.model2.name = this.employees[k].name;
-    this.model2.position = this.employees[k].position;
+  editProduct(k){
+    this.model2.name = this.products[k].name;
+    this.model2.quantity = this.products[k].quantity;
     this.myValue = k;
   }
-  updateEmployee(){
+  updateProduct(){
     let k= this.myValue;
-    for(let i=0; i<this.employees.length;i++){
+    for(let i=0; i<this.products.length;i++){
       if(i==k){
-        this.employees[i]= this.model2;
+        this.products[i]= this.model2;
         this.model2 = {};
       }
     }
